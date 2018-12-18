@@ -31,7 +31,8 @@ public class test1 {
         list1.add('1');
         list=list1;
         System.out.println(list);
-
+        int b= 3/2;
+        System.out.println(b);
 
 
 

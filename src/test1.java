@@ -34,6 +34,9 @@ public class test1 {
         int b= 3/2;
         System.out.println(b);
 
+        String s3="abcde";
+        System.out.println(s3.substring(1,4));
+
 
 
     }

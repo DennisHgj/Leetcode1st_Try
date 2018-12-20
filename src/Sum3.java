@@ -1,25 +1,16 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class Sum3 {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i+2< nums.length; i++) {
-            if (i>0&&nums[i]==nums[i-1]){
-                continue;
-            }
-            for (int j = i+1; j +1< nums.length; j++) {
-                if (j>1&&nums[j]==nums[j-1]){
-                    continue;
-                }
-                for (int k = nums.length-1; k >j ; k--) {
-                    if (k<nums.length-1&&nums[k]==nums[k+1]){
-                        continue;
-                    }
-                    boolean x =  (nums[i] + nums[j] + nums[k] == 0);
+
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                for (int k = 2; k < nums.length; k++) {
+                    boolean x = i != j && i != k && j != k && (nums[i] + nums[j] + nums[k] == 0);
                     List<Integer> temp = new ArrayList<>();
                     temp.add(nums[i]);
                     temp.add(nums[j]);
@@ -28,7 +19,6 @@ public class Sum3 {
                         if (lists.isEmpty()) {
                             List<Integer> list = temp;
                             lists.add(list);
-                            continue;
                         } else {
                             boolean contain = false;
                             for (int z = 0; z < lists.size(); z++) {
@@ -43,14 +33,12 @@ public class Sum3 {
                                     contain = true;
                                 }
                             }
-
                             if (!contain) {
                                 List<Integer> list = new ArrayList<>();
                                 list.add(nums[i]);
                                 list.add(nums[j]);
                                 list.add(nums[k]);
                                 lists.add(list);
-                                continue;
                             }
 
                         }
